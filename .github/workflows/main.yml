@@ -28,6 +28,12 @@ jobs:
       - name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
 
+      - name: Upload artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: myimage
+          path: /tmp/myimage.tar
+
 # TODO: Check if there is an easier way!
   test_docker_image:
     runs-on: ubuntu-latest
