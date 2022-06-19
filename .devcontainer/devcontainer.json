@@ -1,5 +1,5 @@
 {
-    "name": "Lua (Community)",
+    "name": "Lua",
     
     "build": {
         "dockerfile": "Dockerfile"
@@ -21,8 +21,7 @@
             "extensions": [
 				"tomblind.local-lua-debugger-vscode",
 				"sumneko.lua",
-				"oroschz.busted-tests",
-				"ms-vscode.atom-keybindings"
+				"oroschz.busted-tests"
 			]
         }
     },
@@ -32,7 +31,7 @@
     // Workaround: Binary build of lua-language-server to make it work in Alpine.
     // TODO Create a ticket with the original error message in https://github.com/sumneko/lua-language-server
     // For lifecycle script details see https://code.visualstudio.com/docs/remote/devcontainerjson-reference#_lifecycle-scripts
-    "onCreateCommand": "sh .devcontainer/on_create.sh"
+    "onCreateCommand": "sh .devcontainer/scripts/on_create.sh"
 
     // Use 'forwardPorts' to make a list of ports inside the container available locally.
 	// "forwardPorts": [],
