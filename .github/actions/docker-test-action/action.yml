@@ -1,6 +1,9 @@
 name: 'Docker test action'
 description: 'Test the Docker container'
 inputs:
+  docker-image:
+    description: 'Dockerfile'
+    required: true
   lua-version: # id of input
     description: 'Lua version to test'
     required: true
@@ -11,6 +14,6 @@ outputs:
 
 runs: 
   using: 'docker'
-  image: '.devcontainer/Dockerfile'
+  image: ${{ inputs.docker-image }}
   args:
     - LUA_INSTALL_VERSION = ${{ inputs.lua-version }}
