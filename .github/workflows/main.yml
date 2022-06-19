@@ -1,0 +1,19 @@
+on: [push]
+
+jobs:
+  check_vscode_container:
+    # TODO what host are available?
+    runs-on: ubutnu-latest
+    steps:
+      # To use this repository's private action,
+      # you must check out the repository
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Test docker image
+        uses: ./ # Uses an action in the root directory
+        id: docker_test
+        with:
+          lua-version: '5.3.6'
+      # Use the output from the `hello` step
+      - name: Get the output time
+        run: echo "The time was ${{ steps.docker_test.outputs.time }}"

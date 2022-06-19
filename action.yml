@@ -1,0 +1,16 @@
+name: 'VSCode devcontainer lua'
+description: 'Test the Docker container'
+inputs:
+  lua-version: # id of input
+    description: 'Lua version to test'
+    required: true
+    default: '5.1.5'
+outputs:
+  time: # id of output - just a test
+    description: 'The time we greeted you'
+
+runs:
+  using: 'docker'
+  image: '.devcontainer/Dockerfile'
+  build-args: |
+    - LUA_INSTALL_VERSION = ${{ inputs.lua-version }}

@@ -75,3 +75,9 @@ RUN adduser -u $USER_UID -G lua-users -h /home/$USERNAME -D $USERNAME
 # [Optional] Set the default user. Omit if you want to keep the default as root.
 # e.g. if you notice that you have to run sudo .. in your terminal just comment the next line. (Note: Sudo not available in Alpine by default)
 # USER $USERNAME
+
+# Copies your code file from your action repository to the filesystem path `/` of the container
+COPY .devcontainer/scripts/entrypoint.sh /entrypoint.sh
+
+# Code file to execute when the docker container starts up (`entrypoint.sh`)
+ENTRYPOINT ["/entrypoint.sh"]
