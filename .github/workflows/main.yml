@@ -50,6 +50,7 @@ jobs:
         run: |
           docker load --input /tmp/myimage.tar
           docker image ls -a
-          docker exec myimage echo "Version: \n $(lua -v) - $(luarocks --version)"
+          docker run --name mycontainer --rm -i -t myimage
+          docker exec -ti mycontainer sh -c "echo Version: \n $(lua -v) && echo $(luarocks --version)"
 
         
