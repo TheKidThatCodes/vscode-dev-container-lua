@@ -53,6 +53,8 @@ before_install:
   - luarocks install busted
   - luarocks install cluacov
   - luarocks install luacheck
+  - luarocks install busted-htest
+  - luarocks intstall luasocket
 
 install:
   - luarocks make

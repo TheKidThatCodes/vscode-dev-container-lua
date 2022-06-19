@@ -15,7 +15,7 @@ Important files:
 * `lua-docker-dev-1.rockspec`: [LuaRocks](https://luarocks.org/) project specification.
 * `.luacheckrc.json`: [sumneko.lua](https://github.com/sumneko/lua-language-server/wiki/Setting) settings.
 * `.luacov`: [LuaCov](https://keplerproject.github.io/luacov/) config.
-* `.travis.yml`: [Travis CI](https://travis-ci.org/) config.
+* `.travis.yml`: [Travis CI](https://app.travis-ci.com/) config.
 * `appveyor.yml`: [AppVeyor](https://www.appveyor.com/) config.
 
 # Lua project
@@ -71,4 +71,4 @@ For more details, see [tomblind.local-lua-debugger-vscode](https://marketplace.v
 
 
 # License
-MIT, @copy;2022 Alexander Wolf
+MIT, (c) 2022 - present Alexander Wolf
