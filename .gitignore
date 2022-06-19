@@ -1,0 +1,9 @@
+/luarocks
+/lua
+/lua_modules
+/.luarocks
+
+# generated files
+luacov.*
+
+.env

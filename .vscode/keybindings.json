@@ -1,0 +1,12 @@
+[
+    {
+        "key": "ctrl+shift+t a",
+        "command": "testing.runAll",
+        "when": "config.workspaceKeybindings.myAwesomeTask.enabled" // Must be "config.{settingName}"
+    },
+    {
+        "key": "ctrl+shift+t l",
+        "command": "testing.reRunLastRun",
+        "when": "config.workspaceKeybindings.myAwesomeTask.enabled" // Must be "config.{settingName}"
+    }
+]

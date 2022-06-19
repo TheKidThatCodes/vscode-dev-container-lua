@@ -1,0 +1,10 @@
+return {
+    include = {},
+    exclude = {
+        -- ignore all test files and every library
+        "_spec",
+        "lua_modules",
+        "luarocks"
+    },
+    includeuntestedfiles = true -- requires luafilesystem rock to be installed
+}

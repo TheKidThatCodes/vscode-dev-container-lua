@@ -1,0 +1,9 @@
+return {
+   _all = {
+      coverage = true
+   },
+   default = {
+      output = "htest",
+      verbose = true,
+   }
+}

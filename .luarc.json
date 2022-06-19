@@ -1,0 +1,49 @@
+{
+    "$schema": "https://raw.githubusercontent.com/sumneko/vscode-lua/master/setting/schema.json",
+    "diagnostics": {
+        "disable": [
+            "close-non-object",
+            "lowercase-global"
+        ],
+        "globals": ["hs", "vim", "it", "describe", "before_each", "after_each"],
+        "neededFileStatus": {
+            "undefined-field": "Any",
+            "await-in-sync": "Any",
+            "not-yieldable": "Any",
+            "discard-returns": "Any",
+            "redundant-parameter": "Any",
+            "missing-parameter": "Any",
+            "need-check-nil": "Any",
+            "redundant-value": "Any",
+            "deprecated": "Any"
+        },
+        "ignoredFiles": "Opened",
+        "libraryFiles": "Opened"
+    },
+    "runtime": {
+        "version": "Lua 5.4",
+        "path": [
+            "src/?.lua",
+            "src/?/init.lua",
+            "spec/?.lua",
+            "spec/?/init.lua"
+        ],
+        "pathStrict": true
+    },
+    "workspace": {
+        "maxPreload": 1600,
+        "preloadFileSize": 1000,
+        "ignoreDir": [
+            "locale/",
+            "libs/",
+            "3rd",
+            ".vscode",
+            "meta",
+            "lua_modules"
+        ],
+        "library": [
+            "src/meta",
+            "bin"
+        ]
+    }
+}
