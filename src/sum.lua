@@ -1,5 +1,4 @@
 local sum = {}
-local utils = require("utils");
 
 --- Adds two numbers
 --- @param a number first value
