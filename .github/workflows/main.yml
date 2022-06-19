@@ -18,8 +18,8 @@ jobs:
           file: ./.devcontainer/Dockerfile
           load: true
           build-args: |
-            LUA_INSTALL_VERSION="5.3.6"
-            LUAROCKS_INSTALL_VERSION="3.8.0"
+            LUA_INSTALL_VERSION=5.3.6
+            LUAROCKS_INSTALL_VERSION=3.8.0
           # push: true
           # tags: ${{ secrets.DOCKER_HUB_USERNAME }}/simplewhale:latest
 
