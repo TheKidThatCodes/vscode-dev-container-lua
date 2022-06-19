@@ -11,6 +11,7 @@ outputs:
 
 runs:
   using: 'docker'
-  image: '.devcontainer/Dockerfile'
-  build-args: |
-    - LUA_INSTALL_VERSION = ${{ inputs.lua-version }}
+  with:
+    context: '.devcontainer/Dockerfile'
+    build-args: |
+      LUA_INSTALL_VERSION = ${{ inputs.lua-version }}
