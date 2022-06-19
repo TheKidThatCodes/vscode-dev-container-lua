@@ -2,9 +2,9 @@
 
 Travis & Appveyor configuration copied from https://github.com/mpeterv/lua-ci-example. Docker configuration created & tested on Windows host.
 
-[![Build Status](https://travis-ci.org/mpeterv/lua-ci-example.svg?branch=master)](https://travis-ci.org/mpeterv/lua-ci-example)
-[![Build status](https://ci.appveyor.com/api/projects/status/1a3rgqpa7jv3f8tp/branch/master?svg=true)](https://ci.appveyor.com/project/mpeterv/lua-ci-example/branch/master)
-[![codecov](https://codecov.io/gh/mpeterv/lua-ci-example/branch/master/graph/badge.svg)](https://codecov.io/gh/mpeterv/lua-ci-example)
+[![Build Status](https://app.travis-ci.com/AWolf81/vscode-dev-container-lua.svg?branch=main)](https://app.travis-ci.com/AWolf81/vscode-dev-container-lua)
+[![Build status](https://ci.appveyor.com/api/projects/status/t61uovd52e8kq8e8?svg=true)](https://ci.appveyor.com/project/AWolf81/vscode-dev-container-lua)
+[![codecov](https://codecov.io/gh/AWolf81/vscode-dev-container-lua/branch/main/graph/badge.svg?token=PNZYY8R7C6)](https://codecov.io/gh/AWolf81/vscode-dev-container-lua)
 
 This repository demonstrates how to setup up CI for a simple Lua project packaged for [LuaRocks](https://luarocks.org/). Builds are run on [Travis CI](https://travis-ci.org/) under Linux and Mac OS and on [AppVeyor](https://www.appveyor.com/) under Windows. On each platform there are separate builds using Lua 5.1, Lua 5.2, Lua 5.3, LuaJIT 2.0, and LuaJIT 2.1, using [hererocks](https://github.com/mpeterv/hererocks) to setup environment. Each build lints the code using [luacheck](https://github.com/mpeterv/luacheck), runs tests using [busted](https://olivinelabs.com/busted/), and collects test coverage using [LuaCov](https://keplerproject.github.io/luacov/). Test coverage is submitted to [Codecov](https://codecov.io).
 

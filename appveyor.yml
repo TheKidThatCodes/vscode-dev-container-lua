@@ -18,6 +18,8 @@ before_build:
   - luarocks install busted
   - luarocks install cluacov
   - luarocks install luacheck
+  - luarocks install busted-htest
+  - luarocks install luasocket
 
 build_script:
   - luarocks make
