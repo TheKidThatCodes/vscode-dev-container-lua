@@ -3,6 +3,10 @@ on: [push]
 jobs:
   build_container:
     # TODO what host are available? How to test on multiple platforms?
+    # strategy:
+    #   matrix:
+    #     os: [ubuntu-18.04, ubuntu-20.04]
+    #     version: [10, 12, 14]
     runs-on: ubuntu-latest
     steps:
       # To use this repository's private action,
@@ -14,8 +18,8 @@ jobs:
         id: docker_build
         uses: docker/build-push-action@v2
         with:
-          context: .
-          file: ./.devcontainer/Dockerfile
+          context: "{{defaultContext}}"
+          file: .devcontainer/Dockerfile
           load: true
           build-args: |
             LUA_INSTALL_VERSION=5.3.6
