@@ -1,6 +1,7 @@
 on: [push]
 
 env:
+  APP_NAME: myapp
   TEST_TAG: user/myapp:test
 
 jobs:
@@ -30,7 +31,7 @@ jobs:
           # push: true
           # tags: ${{ secrets.DOCKER_HUB_USERNAME }}/simplewhale:latest
           tags: ${{ env.TEST_TAG }}
-          outputs: type=docker,dest=/tmp/${{ env.TEST_TAG }}.tar
+          outputs: type=docker,dest=/tmp/${{ APP_NAME }}.tar
 
       - name: Test
         run: |
@@ -42,8 +43,8 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-artifact@v2
         with:
-          name: ${{ env.TEST_TAG }}
-          path: /tmp/${{ env.TEST_TAG }}.tar
+          name: ${{ APP_NAME }}
+          path: /tmp/${{ APP_NAME }}.tar
 
 # TODO: Check if there is an easier way!
   test_docker_image:
@@ -55,11 +56,11 @@ jobs:
       - name: Download artifact
         uses: actions/download-artifact@v2
         with:
-          name: ${{ env.TEST_TAG }}
+          name: ${{ APP_NAME }}
           path: /tmp
       - name: Load Docker image
         run: |
-          docker load --input /tmp/${{ env.TEST_TAG }}.tar
+          docker load --input /tmp/${{ APP_NAME }}.tar
           docker run --name mycontainer --rm -i -t ${{ env.TEST_TAG }}
           docker exec -ti mycontainer sh -c "echo Version: \n $(lua -v) && echo $(luarocks --version)"
 
