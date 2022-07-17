@@ -46,8 +46,8 @@ jobs:
       - name: Test
         run: |
           docker load --input /tmp/${{ env.APP_NAME }}.tar
-          docker run --name mycontainer --rm -i -t ${{ env.TEST_TAG }}
-          # docker run --rm ${{ env.TEST_TAG }}
+          docker run --name mycontainer --rm -t ${{ env.TEST_TAG }}
+
 # TODO: Check if there is an easier way!
   # test_docker_image:
   #   runs-on: ubuntu-latest
