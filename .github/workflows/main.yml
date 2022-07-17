@@ -1,5 +1,8 @@
 on: [push]
 
+env:
+  TEST_TAG: user/myapp:test
+
 jobs:
   build_container:
     # TODO what host are available? How to test on multiple platforms?
@@ -14,11 +17,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
       - uses: docker/setup-buildx-action@v1
-      - name: Build and push
+      - name: Build and export to Docker
         id: docker_build
-        uses: docker/build-push-action@v2
+        uses: docker/build-push-action@v3
         with:
-          context: "{{defaultContext}}"
+          context: .
           file: .devcontainer/Dockerfile
           load: true
           build-args: |
@@ -26,8 +29,12 @@ jobs:
             LUAROCKS_INSTALL_VERSION=3.8.0
           # push: true
           # tags: ${{ secrets.DOCKER_HUB_USERNAME }}/simplewhale:latest
-          tags: myimage:latest
-          outputs: type=docker,dest=/tmp/myimage.tar
+          tags: ${{ env.TEST_TAG }}
+          outputs: type=docker,dest=/tmp/${{ env.TEST_TAG }}.tar
+
+      - name: Test
+        run: |
+          docker run --rm ${{ env.TEST_TAG }}
 
       - name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
@@ -35,8 +42,8 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-artifact@v2
         with:
-          name: myimage
-          path: /tmp/myimage.tar
+          name: ${{ env.TEST_TAG }}
+          path: /tmp/${{ env.TEST_TAG }}.tar
 
 # TODO: Check if there is an easier way!
   test_docker_image:
@@ -48,13 +55,12 @@ jobs:
       - name: Download artifact
         uses: actions/download-artifact@v2
         with:
-          name: myimage
+          name: ${{ env.TEST_TAG }}
           path: /tmp
       - name: Load Docker image
         run: |
-          docker load --input /tmp/myimage.tar
-          docker image ls -a
-          docker run --name mycontainer --rm -i -t myimage
+          docker load --input /tmp/${{ env.TEST_TAG }}.tar
+          docker run --name mycontainer --rm -i -t ${{ env.TEST_TAG }}
           docker exec -ti mycontainer sh -c "echo Version: \n $(lua -v) && echo $(luarocks --version)"
 
         
