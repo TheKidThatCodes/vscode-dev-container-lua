@@ -3,7 +3,7 @@ FROM prantlf/alpine-make-gcc:latest
 LABEL version="0.0.1"
 LABEL description="Lua docker container to easily run & develop Lua scripts"
 
-ARG LUA_INSTALL_VERSION="5.4.4"
+ARG LUA_INSTALL_VERSION="5.2.4"
 ARG LUAROCKS_INSTALL_VERSION="3.9.0"
 ARG USERNAME=lua-user
 ARG USER_UID=1000
